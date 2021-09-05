@@ -1,0 +1,15 @@
+/Users/julianseitz/TechTycoon/bin/Debug/net5.0/TechTycoon.deps.json
+/Users/julianseitz/TechTycoon/bin/Debug/net5.0/TechTycoon.runtimeconfig.json
+/Users/julianseitz/TechTycoon/bin/Debug/net5.0/TechTycoon.runtimeconfig.dev.json
+/Users/julianseitz/TechTycoon/bin/Debug/net5.0/TechTycoon.dll
+/Users/julianseitz/TechTycoon/bin/Debug/net5.0/ref/TechTycoon.dll
+/Users/julianseitz/TechTycoon/bin/Debug/net5.0/TechTycoon.pdb
+/Users/julianseitz/TechTycoon/obj/Debug/net5.0/TechTycoon.csproj.AssemblyReference.cache
+/Users/julianseitz/TechTycoon/obj/Debug/net5.0/TechTycoon.GeneratedMSBuildEditorConfig.editorconfig
+/Users/julianseitz/TechTycoon/obj/Debug/net5.0/TechTycoon.AssemblyInfoInputs.cache
+/Users/julianseitz/TechTycoon/obj/Debug/net5.0/TechTycoon.AssemblyInfo.cs
+/Users/julianseitz/TechTycoon/obj/Debug/net5.0/TechTycoon.csproj.CoreCompileInputs.cache
+/Users/julianseitz/TechTycoon/obj/Debug/net5.0/TechTycoon.dll
+/Users/julianseitz/TechTycoon/obj/Debug/net5.0/ref/TechTycoon.dll
+/Users/julianseitz/TechTycoon/obj/Debug/net5.0/TechTycoon.pdb
+/Users/julianseitz/TechTycoon/obj/Debug/net5.0/TechTycoon.genruntimeconfig.cache
