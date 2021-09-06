@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -12,6 +13,7 @@ namespace TechTycoon
         static List<string> technologyTypes = new List<string>(){"Mobile Phone", "Video Games", "Computers", "Social Media"};
         static List<string> mediaTypes = new List<string>(){"TV Channel", "Publishing", "Music Label", "Films"};
         static List<Employee> toFire = new List<Employee>();
+        static List<Company> toDefunct = new List<Company>();
         
         static int initialCompanies = 100;
         static int startYear = 2020;
@@ -31,6 +33,7 @@ namespace TechTycoon
                 temp.name = "Company" + i;
                 temp.startupFunds = r.Next(250, 100000);
                 temp.employeesToHire = 0;
+                temp.yearsInRed = 0;
                 var e = r.Next(0, types.Count);
                 if(types[e] == "Store"){
                     var sb = r.Next(0, storeTypes.Count);
@@ -77,6 +80,19 @@ namespace TechTycoon
         static void PassYear(){
             Console.WriteLine("One year is passing...");
             foreach(var company in companyList){
+
+                if(company.subType.Contains("Grocery")){
+                    foreach(var store in company.stores){
+                        if(store.type == "Grocery"){
+                            Random r = new Random();
+                            company.balance -= store.rent;
+                            company.balance -= store.upkeep;
+                            company.balance += store.monthlyYield;
+                            store.monthlyYield -= r.Next(-100000, 1000000);
+                        }
+                    }
+                }
+
                 if(company.employeeList.Count > 0){
                     foreach(var employee in company.employeeList){
                         bool fired;
@@ -154,7 +170,7 @@ namespace TechTycoon
                     }
                 }
 
-                if(company.employeesToHire > 0){
+                if(company.employeesToHire > 1){
                     if(company.subType.Contains("Grocery")){
                         for(int i = 0; i < company.employeesToHire; i++){
                                     Random r = new Random();
@@ -196,8 +212,22 @@ namespace TechTycoon
                     company.employeesToHire = 0;
                     
                 }
+
+                if(company.balance < 500000){
+                    company.yearsInRed++;
+                }else{
+                    company.yearsInRed = 0;
+                }
+                if(company.yearsInRed > 9){
+                    Console.WriteLine("{0} has gone defunct, with a total loss of {1}! Farewell, my friend...", company.name, company.balance);
+                    toDefunct.Add(company);
+                }
             }
             userInput();
+
+            foreach(var company in toDefunct){
+                companyList.Remove(company);
+            }
         }
 
         static void userInput(){
@@ -229,6 +259,13 @@ namespace TechTycoon
 
             if(line == "pass year"){
                 PassYear();
+            }
+            if(line == "top companies"){
+                List<Company> topCompanies = companyList.OrderByDescending(Company => Company.balance).ToList();
+                Console.WriteLine("Top Companies - by balance");
+                foreach(var company in topCompanies){
+                    Console.WriteLine("{0} - balance: {1}", company.name, company.balance);
+                }
             }
             userInput();
     }
