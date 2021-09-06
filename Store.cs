@@ -14,5 +14,6 @@ namespace TechTycoon
         public int initialCost;
         public int size;
         public int location;
+        public int monthlyYield;
     }
 }

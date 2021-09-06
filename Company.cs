@@ -10,6 +10,7 @@ namespace TechTycoon
         public int id;
         public int startupFunds;
         public int balance;
+        public int employeesToHire;
         public string type;
         public List<Employee> employeeList = new List<Employee>();
         public List<string> subType = new List<string>();

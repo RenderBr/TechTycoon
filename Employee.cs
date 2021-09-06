@@ -19,6 +19,7 @@ namespace TechTycoon
         public int happiness;
 
         public int skill;
+        public int efficiency;
         public List<string> thoughts = new List<string>();
     }
 }
